@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shullick & Co.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #fff;
+      color: #000;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 6rem 2rem 6rem;
+    }
+
+    h1 {
+      font-family: 'Jacquard 12', cursive;
+      font-size: 4rem;
+      line-height: 1;
+      margin-bottom: 2rem;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 2rem;
+      max-width: 400px;
+    }
+
+    /* ── TERMINAL ── */
+    .terminal {
+      font-family: monospace;
+      font-size: 0.82rem;
+      color: #555;
+      margin-bottom: 3.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      height: 1.4em;
+      overflow: hidden;
+    }
+
+    .terminal-prompt {
+      color: #bbb;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .terminal-text {
+      color: #444;
+      white-space: nowrap;
+    }
+
+    .terminal-cursor {
+      display: inline-block;
+      width: 1px;
+      height: 1em;
+      background: #aaa;
+      margin-left: 1px;
+      vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .book-btn {
+      display: block;
+      width: fit-content;
+      margin: 0 auto 3.5rem;
+      padding: 0.55rem 1.25rem;
+      border: 1px solid #000;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #000;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .book-btn:hover { background: #000; color: #fff; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 1.25rem;
+    }
+
+    .services { margin-bottom: 3.5rem; }
+
+    .service {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    .service-title { font-size: 0.95rem; font-weight: 400; margin-bottom: 0.35rem; }
+
+    .service-desc, .engagement-desc, .faq-a {
+      font-size: 0.88rem;
+      color: #666;
+      line-height: 1.65;
+    }
+
+    .past-work { margin-bottom: 3.5rem; }
+
+    .engagement {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    .engagement:last-child { border-bottom: none; }
+
+    .engagement-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .engagement-company { font-size: 0.95rem; font-weight: 400; }
+    a.engagement-company { color: #000; text-underline-offset: 3px; text-decoration: none; border-bottom: 1px solid #e8e8e8; }
+    a.engagement-company:hover { border-bottom-color: #000; }
+    .engagement-role { font-size: 0.8rem; color: #999; letter-spacing: 0.04em; }
+
+    hr { border: none; border-top: 1px solid #000; margin-bottom: 3rem; }
+
+    .calendly-placeholder {
+      width: 100%;
+      min-height: 480px;
+      border: 1px dashed #ccc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      color: #aaa;
+      margin-bottom: 3.5rem;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .calendly-placeholder p { font-size: 0.88rem; line-height: 1.6; max-width: 280px; }
+
+    .calendly-placeholder code {
+      font-size: 0.78rem;
+      background: #f5f5f5;
+      color: #888;
+      padding: 0.3rem 0.6rem;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+
+    .faq { margin-bottom: 2rem; }
+
+    details { border-bottom: 1px solid #e8e8e8; }
+
+    details summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 0;
+      font-size: 0.95rem;
+      font-weight: 400;
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+
+    details summary::-webkit-details-marker { display: none; }
+
+    details summary::after {
+      content: '+';
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: #aaa;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+
+    details[open] summary::after { transform: rotate(45deg); }
+
+    .faq-a { padding-bottom: 1.25rem; }
+    .faq-a a { color: #000; text-underline-offset: 3px; }
+    .faq-a a:hover { color: #555; }
+
+    .footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #e8e8e8;
+      font-size: 0.8rem;
+      color: #bbb;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Shullick &amp; Co.</h1>
+    <p class="tagline">I get software out of the critical path for your hardware launch — designing, building, and debugging the full embedded stack.</p>
+
+    <div class="terminal">
+      <span class="terminal-prompt">$ &nbsp;</span><span class="terminal-text" id="term-text"></span><span class="terminal-cursor"></span>
+    </div>
+
+    <a class="book-btn" href="#book">Book a call</a>
+
+    <p class="section-label">What I help with</p>
+    <div class="services">
+      <div class="service">
+        <p class="service-title">Product Development Strategy</p>
+        <p class="service-desc">I'll architect the full solution at a nuts-and-bolts level — defining the interfaces early so your team can parallelize work and make the most of the time and people you have to get to market as quickly as possible. We'll tune the plan to your stage together, whether you're preparing to deploy your first systems or scaling up the fleet.</p>
+      </div>
+      <div class="service">
+        <p class="service-title">Firmware &amp; SDK</p>
+        <p class="service-desc">I'll own the firmware layer and deliver an SDK for your custom hardware. That includes pinning down RTOS requirements, hardware selection, and end-to-end testing. I have particular experience with high data throughput and imaging systems, though the work spans a broad range of embedded targets.</p>
+      </div>
+      <div class="service">
+        <p class="service-title">Firmware Debugging &amp; Root Cause Analysis</p>
+        <p class="service-desc">For teams stuck on a hard bug. Crashes, race conditions, memory corruption, hardware-software interaction failures — I find what's actually wrong and explain why. Available as a standalone engagement when you need an outside expert who can go all the way down the stack.</p>
+      </div>
+    </div>
+
+    <p class="section-label">Past work</p>
+    <div class="past-work">
+      <div class="engagement">
+        <div class="engagement-header">
+          <a class="engagement-company" href="https://lumafield.com" target="_blank" rel="noopener">Lumafield</a>
+          <span class="engagement-role">Hardware Integration</span>
+        </div>
+        <p class="engagement-desc">Data acquisition and system architecture for Lumafield's industrial CT scanning platform, spanning FPD bring-up, motion systems, and industrial controls. Led system integration and end-to-end development of the Triton platform.</p>
+      </div>
+      <div class="engagement">
+        <div class="engagement-header">
+          <a class="engagement-company" href="https://tesla.com" target="_blank" rel="noopener">Tesla</a>
+          <span class="engagement-role">Dojo Supercomputer</span>
+        </div>
+        <p class="engagement-desc">Worked on firmware and low-level hardware integration for Dojo, Tesla's custom AI training supercomputer. Contributed to the bring-up and validation of novel silicon.</p>
+      </div>
+      <div class="engagement">
+        <div class="engagement-header">
+          <a class="engagement-company" href="https://industrialnext.ai" target="_blank" rel="noopener">IndustrialNext</a>
+          <span class="engagement-role">Embedded Vision Systems</span>
+        </div>
+        <p class="engagement-desc">Founding engineer to a YC-backed hardware startup. Built embedded vision systems designed for industrial environments. Took Jetson, ROS, and edge computer vision to production.</p>
+      </div>
+    </div>
+
+    <hr />
+
+    <p id="book" class="section-label">Book a call</p>
+    <div class="calendly-placeholder">
+      <p>Calendly embed goes here. Replace this block with your Calendly inline widget script.</p>
+      <code>&lt;!-- Calendly inline widget --&gt;</code>
+    </div>
+
+    <p class="section-label">FAQ</p>
+    <div class="faq">
+      <details>
+        <summary>Who are the engineers?</summary>
+        <p class="faq-a"><a href="https://linkedin.com/in/mshullick" target="_blank" rel="noopener">Michael Shullick</a> — embedded systems engineer with experience across Tesla, IndustrialNext, and Lumafield. All work is done directly by Michael; there are no subcontractors.</p>
+      </details>
+      <details>
+        <summary>Where do you work?</summary>
+        <p class="faq-a">Based in Boston, Massachusetts. Most work is carried out remotely, but I prefer on-site visits early in a project to get close to the team and the engineering problems.</p>
+      </details>
+      <!--
+      <details>
+        <summary>What technologies do you specialize in?</summary>
+        <p class="faq-a">C and C++ at the firmware layer, FreeRTOS and Zephyr for RTOS work, and a range of embedded targets including ARM Cortex-M and custom silicon. Also experienced with JTAG/SWD debugging, logic analyzers, and oscilloscope-level hardware analysis.</p>
+      </details>
+      <details>
+        <summary>Can you debug hardware?</summary>
+        <p class="faq-a">Yes — though the focus is on the boundary between hardware and firmware. If a bug lives in a schematic or a PCB layout, that's a different discipline. If it lives in the way firmware is responding to hardware behavior, that's exactly the kind of problem this practice is built for.</p>
+      </details>
+      -->
+    </div>
+
+    <div class="footer">&copy; 2025 Shullick &amp; Co.</div>
+  </main>
+
+  <script>
+    const commands = [
+      'gdb -q ./firmware.elf',
+      'openocd -f interface/stlink.cfg -f target/stm32f4x.cfg',
+      'arm-none-eabi-objdump -d build/output.elf | less',
+      'readelf -S firmware.elf | grep -i debug',
+      'minicom -D /dev/ttyUSB0 -b 115200',
+      'valgrind --tool=memcheck ./sim_target',
+      'nm --size-sort build/firmware.elf | tail -20',
+      'addr2line -e firmware.elf 0x080023a4',
+      'west flash --runner jlink',
+      'perf stat -e cache-misses ./rt_task',
+    ];
+
+    const el = document.getElementById('term-text');
+    let cmdIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+    let pauseTicks = 0;
+
+    const TYPE_SPEED  = 55;
+    const DELETE_SPEED = 28;
+    const PAUSE_AFTER  = 38;
+    const PAUSE_BEFORE = 10;
+
+    function tick() {
+      const cmd = commands[cmdIndex];
+
+      if (pauseTicks > 0) {
+        pauseTicks--;
+        setTimeout(tick, deleting ? DELETE_SPEED : TYPE_SPEED);
+        return;
+      }
+
+      if (!deleting) {
+        if (charIndex < cmd.length) {
+          el.textContent = cmd.slice(0, ++charIndex);
+          setTimeout(tick, TYPE_SPEED + (Math.random() * 30 - 15));
+        } else {
+          deleting = true;
+          pauseTicks = PAUSE_AFTER;
+          setTimeout(tick, DELETE_SPEED);
+        }
+      } else {
+        if (charIndex > 0) {
+          el.textContent = cmd.slice(0, --charIndex);
+          setTimeout(tick, DELETE_SPEED);
+        } else {
+          deleting = false;
+          cmdIndex = (cmdIndex + 1) % commands.length;
+          pauseTicks = PAUSE_BEFORE;
+          setTimeout(tick, TYPE_SPEED);
+        }
+      }
+    }
+
+    setTimeout(tick, 800);
+  </script>
+</body>
+</html>
