@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K6NFFVBK1R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-K6NFFVBK1R');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shullick & Co.</title>
+  <title>Shullick &amp; Co. | Embedded Systems Engineering Consulting</title>
+  <meta name="description" content="Michael Shullick — embedded systems engineer specializing in firmware development, SDK delivery, and hardware-software debugging. We help startups and small teams ship hardware faster." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="icon" href="favicon.ico" sizes="any" />
@@ -127,6 +137,8 @@
       padding: 1.25rem 0;
       border-bottom: 1px solid #e8e8e8;
     }
+
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
     .service-title { font-size: 0.95rem; font-weight: 400; margin-bottom: 0.35rem; }
 
@@ -270,9 +282,9 @@
 </head>
 <body>
   <main>
-    <h1>Shullick &amp; Co.</h1>
+    <h1>Shullick &amp; Co.<span class="sr-only"> — Embedded Systems Engineering Consulting for Hardware Startups</span></h1>
     <p class="subtitle">Engineering Consulting</p>
-    <p class="tagline">I get software out of the critical path for your hardware launch — designing, building, and debugging the full embedded stack.</p>
+    <p class="tagline">We help startups and small teams get software out of the critical path for hardware launches — designing, building, and debugging the full embedded stack.</p>
 
     <div class="terminal">
       <span class="terminal-prompt">$ &nbsp;</span><span class="terminal-text" id="term-text"></span><span class="terminal-cursor"></span>
@@ -283,15 +295,15 @@
     <p class="section-label">What I help with</p>
     <div class="services">
       <div class="service">
-        <p class="service-title">Embedded Product Development Strategy</p>
-        <p class="service-desc">I'll architect the full solution at a nuts-and-bolts level — defining the interfaces early so your team can parallelize work and make the most of the time and people you have to get to market as quickly as possible. We'll tune the plan to your stage of growth together, whether you're preparing to deploy your first systems or scaling up the fleet.</p>
+        <h2 class="service-title">Embedded Product Development Strategy</h2>
+        <p class="service-desc">I'll architect the full solution at a nuts-and-bolts level — defining the interfaces early so your team can parallelize work and make the most of the time and people you have to get to market as quickly as possible. We'll tune the plan to your stage of growth together, whether you're a founding team deploying your first systems or scaling up the fleet.</p>
       </div>
       <div class="service">
-        <p class="service-title">Firmware &amp; SDK</p>
+        <h2 class="service-title">Firmware &amp; SDK</h2>
         <p class="service-desc">I'll own the firmware layer and deliver an SDK for your custom hardware. That includes pinning down RTOS requirements, hardware selection, and end-to-end testing. I have particular experience with high data throughput and imaging systems, though the work spans a broad range of applications.</p>
       </div>
       <div class="service">
-        <p class="service-title">Firmware Debugging &amp; Root Cause Analysis</p>
+        <h2 class="service-title">Firmware Debugging &amp; Root Cause Analysis</h2>
         <p class="service-desc">For teams stuck on a hard bug. Crashes, race conditions, memory corruption, hardware-software interaction failures — I find what's actually wrong and explain why. Available as a standalone engagement when you need an outside expert who can go all the way down the stack.</p>
       </div>
       <p class="services-note">Need help with something else? <button type="button" class="services-note-link book-schedule-btn">Book a call</button> — we'll see what we can do.</p>
